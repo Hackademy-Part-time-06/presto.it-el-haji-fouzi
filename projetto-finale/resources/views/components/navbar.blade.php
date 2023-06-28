@@ -17,7 +17,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{{ route('articles.create') }}">Publica Articolo</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
