@@ -1,15 +1,16 @@
 <div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning static-top ">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" alt="..." height="36">
+            <a class="navbar-brand" href="{{ route('homepage') }}">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                    alt="Aulab post" height="50">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon È"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
@@ -25,27 +26,33 @@
                             Log
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        @guest
-                            <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
-                                <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li
-                        @endguest
-                        @auth
-                            <li class="nav-item">
-                                <a class="nav-item">{{ Auth::user()->name }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="eventDefault();document.getElementById('form-logout').submit();">logout</a>
-                                 <form method="POST" action="{{ route('logout') }}" style="display:  none" id="form-logout">
+                            @guest
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('register') }}">Rgister</a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                                </li
+                                 @endguest
+                                 @auth
+                                 <li class="nav-item">
+                                <a class="nav-item">benvenuto {{ Auth::user()->name }}</a>
+                                  </li>
+                                <li class="nav-item">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('form-logout').submit();">logout</a>
+                            <form method="POST" action="{{ route('logout') }}" style="display:  none" id="form-logout">
                                 @csrf
-                                </form>
-                            </li>
+                            </form>
+                        </a>
+                        </li>
 
-                        @endauth
+                    @endauth
 
 
-                         </ul>
-                    </li>
+                </ul>
+                </li>
                 </ul>
             </div>
         </div>

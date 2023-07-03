@@ -11,8 +11,7 @@
 
     <div class="container ">
         <div class="row  ">
-            <div class="col-12 col-md-6">
-                <section class="h-100 gradient-form" style="background-color: #eee;">
+            <div class="col-12 col-md-6  align-content-center  ">
 
 
                     <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
@@ -26,7 +25,7 @@
                             <label class="form-label" for="form2Example11">Title</label>
                         </div>
                         <div class="form-outline mb-4">
-                            <input type="text" id="form2Example11" class="form-control" name="discription"
+                            <input type="text" id="form2Example11" class="form-control" name="description"
 
                             <label class="form-label" for="form2Example11">description</label>
                         </div>

@@ -17,7 +17,7 @@ class PageController extends Controller
         return view('homepage',compact('articles'));
 
     }
-   
+
 
     public function login()
     {

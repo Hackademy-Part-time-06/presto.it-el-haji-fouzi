@@ -18,8 +18,9 @@ use App\Http\Controllers\ArticleController;
 Route::get('/',[PageController::class, 'homepage'])->name('homepage');
 Route::get('/login', [PageController::class, 'login'])->name('login');
 Route::get('/register', [PageController::class, 'register'])->name('register');
-Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 
+
+Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 Route::post('/article/store', [ArticleController::class, 'store'])->name('articles.store');
 
 //----------------------------------------------------------------

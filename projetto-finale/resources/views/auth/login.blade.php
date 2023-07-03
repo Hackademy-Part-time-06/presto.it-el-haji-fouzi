@@ -1,6 +1,6 @@
 
     <x-layout>
-        <section class="h-100 gradient-form" style="background-color: #eee;">
+            <h2 class="text-center my-5">Loggin</h2>
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-xl-10">
@@ -16,12 +16,13 @@
                 </div>
 
                 <form method="post" action="{{ route('login') }}">
+                    @csrf
                   <p>Please login to your account</p>
-
+È
                   <div class="form-outline mb-4">
                     <input type="email" id="form2Example11" class="form-control"
-                      placeholder="Phone number or email address"  name="email"/>
-                    <label class="form-label" for="form2Example11">Username</label>
+                      placeholder=""  name="email"/>
+                    <label class="form-label" for="form2Example11">Email address</label>
                   </div>
 
                   <div class="form-outline mb-4">
@@ -29,15 +30,10 @@
                     <label class="form-label" for="form2Example22">Password</label>
                   </div>
 
-                  <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log
-                      in</button>
-                    <a class="text-muted" href="#!">Forgot password?</a>
-                  </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">
                     <p class="mb-0 me-2">Don't have an account?</p>
-                    <button type="button" class="btn btn-outline-danger">Create new</button>
+                    <button type="submit" class="btn btn-outline-danger">Submit</button>
                   </div>
 
                 </form>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 class ArticleController extends Controller
@@ -29,6 +29,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
 
+
         Auth::user()->articles()->create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
@@ -48,10 +49,10 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        Return view('article.show',compact('article'));
+        Return view('articles.show',compact('article'));
     }
 
-   
+
 
 
 
