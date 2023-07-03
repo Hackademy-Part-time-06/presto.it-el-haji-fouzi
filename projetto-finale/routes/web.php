@@ -19,4 +19,9 @@ Route::get('/',[PageController::class, 'homepage'])->name('homepage');
 Route::get('/login', [PageController::class, 'login'])->name('login');
 Route::get('/register', [PageController::class, 'register'])->name('register');
 Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+
 Route::post('/article/store', [ArticleController::class, 'store'])->name('articles.store');
+
+//----------------------------------------------------------------
+Route::get('/articles/{article}/show', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/articles/{category}/index', [ArticleController::class, 'articlesForCategory'])->name('articles.category');

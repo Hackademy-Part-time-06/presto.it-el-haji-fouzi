@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function articles_by_category(Category $category)
+    {
+        $articles = Article::where('category_id', $category->id)->orderBy('created_at','DESC')->get();
+         return view('article.category', compact('articles', 'category'));
+    }
+
+
+
+
     public function index()
     {
         //

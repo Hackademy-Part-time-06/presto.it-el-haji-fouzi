@@ -1,10 +1,10 @@
 <div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning static-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://placeholder.pics/svg/150x50/888888/EEE/Logo" alt="..." height="36">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" alt="..." height="36">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -17,7 +17,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('articles.create') }}">Publica Articolo</a>
+                        <a class="nav-link active" href="{{ route('articles.create') }}">Publica Articolo</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

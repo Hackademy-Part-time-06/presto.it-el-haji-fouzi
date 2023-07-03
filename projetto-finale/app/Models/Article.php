@@ -12,6 +12,9 @@ class Article extends Model
         'title','description','body','img','user_id','category_id'
     ];
 
+
+
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -20,5 +23,4 @@ class Article extends Model
     {
         return $this->belongsTo(Category::class);
     }
-
 }
