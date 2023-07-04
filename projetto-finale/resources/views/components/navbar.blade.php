@@ -17,6 +17,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">Home</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('work.with.us') }}">Work-with-us</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('articles.create') }}">Publica Articolo</a>
                     </li>

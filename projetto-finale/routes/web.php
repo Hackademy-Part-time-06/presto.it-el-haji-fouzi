@@ -26,3 +26,9 @@ Route::post('/article/store', [ArticleController::class, 'store'])->name('articl
 //----------------------------------------------------------------
 Route::get('/articles/{article}/show', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/articles/{category}/index', [ArticleController::class, 'articlesForCategory'])->name('articles.category');
+
+
+Route::get('/work-with-us', [PageController::class, 'workWithUs'])->name('work.with.us');
+
+Route::post('/user/send-role-request', [PageController::class, 'sendRoleRequest'])->name('user.role.request');
+
