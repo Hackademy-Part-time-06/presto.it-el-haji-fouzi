@@ -1,7 +1,9 @@
 
     <x-layout>
-            <h2 class="text-center my-5">Loggin</h2>
-  <div class="container py-5 h-100">
+        <div class="container  vh-100">
+            <div class="row">
+                            <h2 class="text-center my-5">Loggin</h2>
+  <div class="container py-5 vh-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-xl-10">
         <div class="card rounded-3 text-black">
@@ -18,7 +20,7 @@
                 <form method="post" action="{{ route('login') }}">
                     @csrf
                   <p>Please login to your account</p>
-È
+
                   <div class="form-outline mb-4">
                     <input type="email" id="form2Example11" class="form-control"
                       placeholder=""  name="email"/>
@@ -53,6 +55,9 @@
       </div>
     </div>
   </div>
-</section>
+
+            </div>
+        </div>
+
     </x-layout>
 

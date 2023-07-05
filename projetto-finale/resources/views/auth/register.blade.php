@@ -1,6 +1,6 @@
 
 <x-layout>
-  <div class="container">
+  <div class="container my-5 vh-100">
             <form method="post" action="{{ route('register') }}">
                 @csrf
                 <h2>Registration</h2>

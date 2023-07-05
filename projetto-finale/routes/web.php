@@ -32,3 +32,14 @@ Route::get('/work-with-us', [PageController::class, 'workWithUs'])->name('work.w
 
 Route::post('/user/send-role-request', [PageController::class, 'sendRoleRequest'])->name('user.role.request');
 
+
+
+//route admin
+Route::middleware('admin')->group(function(){
+    Route::get('/admin/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/admin/{user}/set-revisor',[AdminController::class, 'makeUserRevisor'])->name('admin.makeUserRevisor');
+    Route::get('/admin/{user}/set-admin',[AdminController::class, 'makeUserAdmin'])->name('admin.makeUserAdmin');
+    Route::get('/admin/{user}/set-writer', [AdminController::class, 'makeUserWriter'])->name('makeUserWriter');
+
+});
+

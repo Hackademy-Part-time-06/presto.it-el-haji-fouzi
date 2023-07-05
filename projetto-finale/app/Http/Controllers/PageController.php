@@ -38,7 +38,8 @@ class PageController extends Controller
         $email = $request->input('email');
         $presentation = $request->input('presentation');
         $requestMail = new RequestRoleMail(compact('role','email', 'presentation'));
-        Mail::to('admin@blog.it')->send($requestMail);
+
+      Mail::to($request->user());
         switch ($role){
             case 'admin':
                 $user->is_admin = NULL;
@@ -50,9 +51,9 @@ class PageController extends Controller
                 $user->is_writer = NULL;
                 break;
         }
-        // $user->update();
+        //  $user->update();
 
-        return redirect()->route(route('homepage'))->with('message', 'Grazie per averci contattato');
+        return redirect()->route('homepage')->with('message', 'Grazie per averci contattato');
     }
 
 
