@@ -1,9 +1,14 @@
 
 <x-layout>
-  <div class="container my-5 vh-100">
+  <div class="container my-4 vh-100 shadow p-2 mb-6 bg-body rounded">
             <form method="post" action="{{ route('register') }}">
                 @csrf
-                <h2>Registration</h2>
+                <h2 class="text-center">Registration</h2>
+                 <div class="text-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                        style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">We are The Aulab post</h4>
+                </div>
 
                 <div class="form-group">
                     <label for="Name" class="col-sm-3 control-label"> Username</label>

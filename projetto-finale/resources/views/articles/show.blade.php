@@ -1,6 +1,6 @@
 
     <x-layout>
-        <div class="container my-5 vh-100">
+        <div class="container text-center my-5 vh-100 shadow p-2 mb-6 bg-body rounded">
             <div class="row">
                   <div class="container">
             <div class="row">
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <p>{{ $article->body }}</p>
-                <a href="{{ route('articles.category',$article->category) }}" class="card-text">{{ $article->category->name }}</a>
+                <a class="btn btn-dark" href="{{ route('articles.category',$article->category) }}" class="card-text">{{ $article->category->name }}</a>
                 <p>Pubblicato da : {{ $article->user->name }}</p>
                 <p>Pubblicato il : {{ $article->created_at->format('d/m/y') }}</p>
             </div>

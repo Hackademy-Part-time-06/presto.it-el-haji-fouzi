@@ -18,6 +18,12 @@ class PageController extends Controller
 
     }
 
+    public function home()
+    {
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(6)->get();
+        return view('homepage', compact('articles'));
+    }
+
 
     public function login()
     {
@@ -39,7 +45,7 @@ class PageController extends Controller
         $presentation = $request->input('presentation');
         $requestMail = new RequestRoleMail(compact('role','email', 'presentation'));
 
-      Mail::to($request->user());
+      Mail::to($request->user())->send($requestMail);
         switch ($role){
             case 'admin':
                 $user->is_admin = NULL;
@@ -51,7 +57,7 @@ class PageController extends Controller
                 $user->is_writer = NULL;
                 break;
         }
-        //  $user->update();
+         $user->update();
 
         return redirect()->route('homepage')->with('message', 'Grazie per averci contattato');
     }

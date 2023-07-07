@@ -1,8 +1,8 @@
 <div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning static-top ">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning position:fixed shadow p-3 mb-5 ">
+        <div class="container ">
             <a class="navbar-brand" href="{{ route('homepage') }}">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                     alt="Aulab post" height="50">
@@ -17,11 +17,21 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">Home</a>
                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('work.with.us') }}">Work-with-us</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            href="{{ route('work.with.us') }}">Work-with-us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="{{ route('articles.create') }}">Publica Articolo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('admin.dashboard') }}">Admin</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('admin.dashboard') }}">writer</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('admin.dashboard') }}">revisor</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -36,19 +46,16 @@
 
                                 <li>
                                     <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                                </li
-                                 @endguest
-                                 @auth
-                                 <li class="nav-item">
+                                </li @endguest @auth <li class="nav-item">
                                 <a class="nav-item">benvenuto {{ Auth::user()->name }}</a>
-                                  </li>
-                                <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('form-logout').submit();">logout</a>
                             <form method="POST" action="{{ route('logout') }}" style="display:  none" id="form-logout">
                                 @csrf
                             </form>
-                        </a>
+                            </a>
                         </li>
 
                     @endauth

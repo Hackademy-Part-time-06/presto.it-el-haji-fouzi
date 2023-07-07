@@ -13,6 +13,7 @@ class CategoryController extends Controller
         $articles = Article::where('category_id', $category->id)->orderBy('created_at','DESC')->get();
          return view('article.category', compact('articles', 'category'));
     }
+   
 
 
 

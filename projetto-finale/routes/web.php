@@ -27,19 +27,36 @@ Route::post('/article/store', [ArticleController::class, 'store'])->name('articl
 Route::get('/articles/{article}/show', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/articles/{category}/index', [ArticleController::class, 'articlesForCategory'])->name('articles.category');
 
-
+//La rotta publica del lavora con noi
 Route::get('/work-with-us', [PageController::class, 'workWithUs'])->name('work.with.us');
 
 Route::post('/user/send-role-request', [PageController::class, 'sendRoleRequest'])->name('user.role.request');
 
-
+Route::middleware('admin')->group(function(){
+    Route::get('/admin/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
 
 //route admin
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/admin/{user}/set-revisor',[AdminController::class, 'makeUserRevisor'])->name('admin.makeUserRevisor');
     Route::get('/admin/{user}/set-admin',[AdminController::class, 'makeUserAdmin'])->name('admin.makeUserAdmin');
-    Route::get('/admin/{user}/set-writer', [AdminController::class, 'makeUserWriter'])->name('makeUserWriter');
+    Route::get('/admin/{user}/set-writer', [AdminController::class, 'makeUserWriter'])->name('admin.makeUserWriter');
 
 });
+Route::middleware('writer')->group(function(){
+    Route::get('/article/create',[ArticleController::class, 'create'])->name('article.create');
+    Route::post('/article/create', [ArticleController::class, 'store'])->name('article.store');
+
+});
+
+Route::middleware('revisor')->group(function () {
+    Route::get('/revisor/dashboard', [RevisorController::class, 'revisorDashboard'])->name('revisor.dashboard');
+    Route::get('/revisor/article/{article}/detail', [RevisorController::class, 'articleDetail'])->name('revisor.detail');
+    Route::post('/revisor/article/{article}/accept', [RevisorController::class, 'acceptArticle'])->name('revisor.accept');
+    Route::post('/revisor/article/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisor.reject');
+});
+
+
+
 
