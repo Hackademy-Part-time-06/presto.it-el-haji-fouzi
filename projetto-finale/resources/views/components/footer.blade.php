@@ -67,7 +67,7 @@
 
                         <!-- Facebook -->
                         <a
-                            a<span class="bi bi-facebook"></span></a>
+                            ><span class="bi bi-facebook"></span></a>
 
                         <!-- Twitter -->
                         <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="#!"

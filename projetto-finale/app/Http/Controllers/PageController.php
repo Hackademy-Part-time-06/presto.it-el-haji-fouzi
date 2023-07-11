@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Mail\RequestRoleMail;
 use Illuminate\Routing\Controller;
@@ -60,6 +61,12 @@ class PageController extends Controller
          $user->update();
 
         return redirect()->route('homepage')->with('message', 'Grazie per averci contattato');
+    }
+
+    public function articles_by_category(Category $category)
+    {
+        $articles = Article::where('category_id', $category->id)-where('is_accepted',true)->orderBy('created_at','DESC')->get();
+          return view('articles.category',compact('articles','category'));
     }
 
 

@@ -2,14 +2,20 @@
 
 namespace App\Http\Middleware;
 
+
+
+
+
+
+
 use Closure;
-use App\Http\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class isAdmin
+
+class is_Admin
 {
     /**
      * Handle an incoming request.

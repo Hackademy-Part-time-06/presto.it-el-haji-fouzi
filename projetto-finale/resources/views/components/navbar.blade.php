@@ -15,55 +15,109 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('homepage') }}">Home</a>
+                        <a class="nav-link active   hover" aria-current="page" href="{{ route('homepage') }}">HOME</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="{{ route('work.with.us') }}">Work-with-us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('articles.create') }}">Publica Articolo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('admin.dashboard') }}">Admin</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('admin.dashboard') }}">writer</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('admin.dashboard') }}">revisor</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Log
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            @guest
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('register') }}">Rgister</a>
-                                </li>
 
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                                </li @endguest @auth <li class="nav-item">
-                                <a class="nav-item">benvenuto {{ Auth::user()->name }}</a>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('work.with.us') }}">LAVORA CON
+                            NOI</a>
+                    </li>
+
+
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('article.create') }}">PUBLICA ARTICOLO</a>
+                    </li>
+
+
+                    @auth
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-success" href="  {{ route('admin.dashboard') }} ">DASHBOARD</a>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('admin.dashboard') }}">WRITER </a>
                         </li>
                         <li class="nav-item">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('form-logout').submit();">logout</a>
-                            <form method="POST" action="{{ route('logout') }}" style="display:  none" id="form-logout">
-                                @csrf
-                            </form>
+                            <a class="nav-link active" href="{{ route('admin.dashboard') }}">REVISOR </a>
+                        </li>
+
+
+
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-bg-danger rounded mx-3" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('LOGOUT') }}
                             </a>
                         </li>
 
-                    @endauth
 
 
-                </ul>
-                </li>
-                </ul>
+                        {{-- User navigation section --}}
+
+
+                        @guest
+
+                            @if (!Auth::guard('admin')->check())
+                                <li class="nav-item list-unstyled ">
+                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                </li>
+
+                                <li class="nav-item list-unstyled ">
+                                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                                </li>
+                            @endif
+
+                        @endguest
+
+                    </ul>
+
+                @endauth
+                <li class="nav-item dropdown list-unstyled ">
+
+                    @guest
+                    <li class="list-unstyled ">
+                        <a class="dropdown-item bg-danger text-center rounded p-2"
+                            href="{{ route('register') }}">ROGISTER</a>
+                    </li>
+
+                    <li class=" list-unstyled ">
+                        <a class="dropdown-item bg-danger mx-2 text-center rounded p-2"
+                            href="{{ route('login') }}">LOGIN</a>
+                    </li @endguest @auth <li class="nav-item list-unstyled ">
+
+                    <a class="nav-item text-dark link-underline-light  " style="text-decoration: none">BENVENUTO
+                        {{ Auth::user()->name }}</a>
+                    </li>
+
+
+
+
+                    <li class="nav-item list-unstyled  ">
+                        <a class="dropdown-item bg-success rounded mx-2 p-2 text-center mb-0  "
+                            href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('form-logout').submit();">LOGOUT</a>
+                        <form method="POST" action="{{ route('logout') }}" style="display:  none" id="form-logout">
+                            @csrf
+                        </form>
+                        </a>
+                    </li>
+
+                @endauth
+
+
+
             </div>
         </div>
     </nav>

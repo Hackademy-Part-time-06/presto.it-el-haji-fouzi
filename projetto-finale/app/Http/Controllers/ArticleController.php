@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 
 
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Article;
+use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class ArticleController extends Controller
 {
 
@@ -57,6 +59,8 @@ class ArticleController extends Controller
 
 
 
+
+
     public function edit(Article $article)
     {
     }
@@ -69,5 +73,10 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
+    }
+    public function articlesForCategory(Category $category)
+    {
+        $articles = Article::where('category_id', $category->id)->orderBy('created_at', 'DESC')->get();
+        return view('articles.category', compact('articles', 'category'));
     }
 }

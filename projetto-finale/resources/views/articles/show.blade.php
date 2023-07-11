@@ -1,6 +1,6 @@
 
     <x-layout>
-        <div class="container text-center my-5 vh-100 shadow p-2 mb-6 bg-body rounded">
+        <div class="container text-center my-5 vh-100 shadow p-2 mb-6-body rounded ">
             <div class="row">
                   <div class="container">
             <div class="row">
