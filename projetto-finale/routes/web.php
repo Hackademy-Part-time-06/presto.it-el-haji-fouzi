@@ -59,6 +59,9 @@ Route::middleware('revisor')->group(function () {
     Route::post('/revisor/article/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisor.reject');
 });
 
+//la rotta serach
+
+Route::get('/article/serach', [PageController::class, 'searchArticle'])->name('search.articles');
 
 
 

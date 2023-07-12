@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Laravel\Scout\Searchable;
+
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -38,4 +40,5 @@ class Article extends Model
             'category'=>$this->category
         ];
     }
+
 }

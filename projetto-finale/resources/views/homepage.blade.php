@@ -1,5 +1,6 @@
 <x-layout>
-    <header class="py-5 bg-light border-bottom mb-4  ">
+    <div class="container ">
+         <header class="bg-light border-bottom mb-4">
         <div class="container">
             <div class="text-center my-5">
                 <h1 class="fw-bolder">Welcome to Aulab news!</h1>
@@ -14,7 +15,11 @@
             </div>
         @endif
     </div>
-    </div>
+     </div>
+      </div>
+
+
+
 
 
 
@@ -33,7 +38,7 @@
 
                         <!-- Blog post-->
                         @foreach ($articles as $article)
-                            <div class="card mb-4 shadow p-2 mb-6 bg-body rounded ">
+                            <div class="card mb-4 shadow p-2 mb-6 bg-body rounded  bg-black">
 
                                 <div class="hovereffect">
                                     <a href="#!"><img class="card-img-top bg-image hovereffect "
@@ -81,11 +86,13 @@
                 <div class="card mb-4">
                     <div class="card-header">Search</div>
                     <div class="card-body">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Enter search term..."
-                                aria-label="Enter search term..." aria-describedby="button-search" />
-                            <button class="btn btn-warning" id="button-search" type="button">Go!</button>
+                        <form action="{{ route('search.articles') }}" method="get" class="d-flex">
+                             <div class="input-group">
+                            <input  type="text" name="key"  class="form-control me-2"   placeholder="Search" />
+                            <button class="btn btn-warning" id="button-search" type="submit">Search</button>
                         </div>
+                        </form>
+
                     </div>
                 </div>
                 <!-- Categories widget-->
@@ -128,9 +135,12 @@
                                         <li><a class="btn btn-warning"
                                                 href="{{ route('articles.category', $article->category) }}">Politic</a>
                                         </li>
+
                                     </div>
                                 </ul>
+
                             </div>
+
                         </div>
                     </div>
                 </div>

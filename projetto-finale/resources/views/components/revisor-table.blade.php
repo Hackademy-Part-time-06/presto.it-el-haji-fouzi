@@ -11,18 +11,26 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($articles as $article)
-                <tr>
-                    <th scope="row">{{ $articles->id }}</th>
-                    <td>{{ $articles->title }}</td>
-                    <td>{{ $articles->category->name }}</td>
-                    <td>{{ $articles->user->name }}</td>
-                    <td>{{ $articles->created_at->format('y-m-d') }}</td>
-                    <td>
-                        <a href="{{ route('revisor.detail', $article) }}" class="btn btn-primary">Leggi</a>
+        
+
+                @if (is_array($articles) || is_object($articles))
+                {
+                @foreach ($articles as $article)
+                    {
+                    <tr>
+                        <th scope="row">{{ $article->id }}</th>
+                    <td>{{ $article->title }}</td>
+                    <td>{{ $article->category->name }}</td>
+                    <td>{{ $article->user->name }}</td>
+                    <td>{{ $article->created_at->format('y-m-d') }}</td>
+                    </tr>
+                     <td>
+                        <a href="{{ route('revisor.detail', $article) }}" class="btn btn-primary">Read</a>
                     </td>
-                </tr>
+                    }
+                }
             @endforeach
+            @endif
         </tbody>
     </table>
 

@@ -28,7 +28,7 @@ class AdminController extends Controller
         return view('admin.dashboard',compact('adminRequests', 'revisorRequests', 'writerRequests'));
     }
 
-    public function makeUserAdmin(User $user)
+    public function makeUserAdmin (User $user)
     {
         $user->is_admin = true;
         $user->save();
@@ -47,5 +47,5 @@ class AdminController extends Controller
         $user->save();
         return redirect()->route('admin.dashboard');
     }
-    //
+
 }

@@ -9,8 +9,7 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <title>Aulab Post</title>
 </head>
-<body  style="background-color: rgb(242, 233, 240);)";
-    >
+<body >
     <x-navbar/>
 
     {{ $slot }}

@@ -19,11 +19,11 @@ class PageController extends Controller
 
     }
 
-    public function home()
-    {
-        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(6)->get();
-        return view('homepage', compact('articles'));
-    }
+    // public function home()
+    // {
+    //     $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(6)->get();
+    //     return view('homepage', compact('articles'));
+    // }
 
 
     public function login()
@@ -69,6 +69,15 @@ class PageController extends Controller
           return view('articles.category',compact('articles','category'));
     }
 
+    public function searchArticle(Request $request    )
+    {
+        $key = $request->input('key');
+        $articles = Article::search($key)->where('is_accepted',true)->get();
+
+        return view('articles.index', compact('articles','key'));
+
+
+    }
 
     //
 }
