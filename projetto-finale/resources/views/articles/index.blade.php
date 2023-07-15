@@ -1,5 +1,4 @@
-
-    <x-layout>
+  <x-layout>
         <div class="container my-5">
             <div class="row">
                 <div class="col-12">
@@ -7,7 +6,7 @@
                 </div>
             </div>
         </div>
-        <div class="container my-5 ">
+        <div class="container my-5">
             <div class="row">
                 @foreach ($articles as $article )
                 <div class="col-12">
@@ -25,4 +24,3 @@
             </div>
         </div>
     </x-layout>
-

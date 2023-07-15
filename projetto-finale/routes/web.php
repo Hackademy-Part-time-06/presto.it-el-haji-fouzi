@@ -45,6 +45,15 @@ Route::middleware('admin')->group(function(){
     Route::get('/admin/{user}/set-admin',[AdminController::class, 'makeUserAdmin'])->name('admin.makeUserAdmin');
     Route::get('/admin/{user}/set-writer', [AdminController::class, 'makeUserWriter'])->name('admin.makeUserWriter');
 
+    Route::post('/tag/Tag/update', [AdminController::class, 'editTag'])->name('tag.edit');
+    Route::delete('/tag/Tag/delete', [AdminController::class, 'deletTag'])->name('tag.delete');
+    Route::post('/tag/store', [AdminController::class, 'storeTag'])->name('tag.store');
+
+    Route::post('/category/{category}/update', [AdminController::class, 'editCategory'])->name('category.edit');
+    Route::delete('/category/{category}/delete', [AdminController::class, 'deleteCategory'])->name('category.delete');
+
+    Route::post('/category/store', [AdminController::class, 'storeCategory'])->name('category.store');
+
 });
 Route::middleware('writer')->group(function(){
     Route::get('/article/create',[ArticleController::class, 'create'])->name('article.create');

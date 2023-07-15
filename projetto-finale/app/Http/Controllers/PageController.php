@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+
+
+
+
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -11,7 +16,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
+
 {
+
+    public function searchArticle(Request $request)
+    {
+        $key = $request->input('key');
+        $articles = Article::search($key)->where('is_accepted', true)->get();
+
+        return view('articles.index', compact('articles', 'key'));
+    }
+
     public function homepage()
     {
         $articles = Article::orderBy('created_at', 'desc')->take(6)->get();
@@ -19,11 +34,11 @@ class PageController extends Controller
 
     }
 
-    // public function home()
-    // {
-    //     $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(6)->get();
-    //     return view('homepage', compact('articles'));
-    // }
+    public function home()
+    {
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(6)->get();
+        return view('homepage', compact('articles'));
+    }
 
 
     public function login()
@@ -69,15 +84,7 @@ class PageController extends Controller
           return view('articles.category',compact('articles','category'));
     }
 
-    public function searchArticle(Request $request    )
-    {
-        $key = $request->input('key');
-        $articles = Article::search($key)->where('is_accepted',true)->get();
 
-        return view('articles.index', compact('articles','key'));
-
-
-    }
 
     //
 }

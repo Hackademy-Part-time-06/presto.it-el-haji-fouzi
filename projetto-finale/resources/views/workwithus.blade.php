@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="container-fluid my-10 ">
                         <div class="row">
-                            <div class="col-12-col-md-6">
+                            <div class="col-12-col-md-6 text-center ">
                                 <h1>Lavora con noi</h1>
                             </div>
                         </div>

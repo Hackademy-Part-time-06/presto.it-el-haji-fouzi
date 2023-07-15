@@ -1,9 +1,5 @@
-
-
-
-
 <x-layout>
-      <div class="container shadow p-3 mb-5 bg-body rounded">
+    <div class="container shadow p-3 mb-5 bg-body rounded">
         <div class="row">
             <div class="container text-center">
                 <div class="row">
@@ -12,27 +8,13 @@
                     </div>
                 </div>
             </div>
+
             <div class="container shadow p-3 mb-5 bg-body rounded">
                 <div class="row">
                     <div class="col-12 col-md-6">
-                    <x-form/>
+                         <x-form />
 
                     </div>
-                 </div>
+                </div>
             </div>
 </x-layout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

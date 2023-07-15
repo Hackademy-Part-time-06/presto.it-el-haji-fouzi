@@ -2,23 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Tag;
 
 use Laravel\Scout\Searchable;
 
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 class Article extends Model
 {
     use HasFactory;
+    use Searchable;
 
 
     protected $fillable = [
-        'title', 'description','body','img','user_id','category_id'
+        'title', 'description', 'body', 'img', 'user_id', 'category_id'
     ];
+
 
 
 
@@ -31,14 +34,19 @@ class Article extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    public function toSearchableArray()
+    public function toSearchableArray(): array
     {
         return [
             'id' => $this->id,
             'title' => $this->title,
             'body' => $this->body,
-            'category'=>$this->category
+            'category' => $this->category
         ];
+    }
+
+    public function tags()
+    {
+        $this->benlongsToMany(Tag::class);
     }
 
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 
+use App\Models\Tag;
 use App\Models\User;
 use App\Models\Article;
 use App\Models\Category;
@@ -24,21 +25,29 @@ class ArticleController extends Controller
 
     public function create()
     {
+        $tags = Tag::all();
+        return view('articles.create', compact('tags'));
 
 
-        return view('articles.create');
     }
     public function store(Request $request)
     {
 
 
-        Auth::user()->articles()->create([
+       $article= Auth::user()->articles()->create(
+        [
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'body' => $request->input('body'),
             'img' => $request->file('img')->store("public/img"),
             'category_id' => $request->input('category_id'),
-        ]);
+        ]
+    );
+            //  $selectedTags = $request->input('tags');
+            //  foreach ($selectedTags as $tagId){
+            //     $article->tags()->attach($tagId);
+             
+
         return redirect()->route('homepage')->with('message', 'Articolo caricato correttamente');
     }
 
@@ -79,4 +88,5 @@ class ArticleController extends Controller
         $articles = Article::where('category_id', $category->id)->orderBy('created_at', 'DESC')->get();
         return view('articles.category', compact('articles', 'category'));
     }
+
 }

@@ -1,5 +1,8 @@
-<form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data">
+
+
+    <form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data">
     <p>Ensert your article</p>
+
     @csrf
 
 
@@ -19,8 +22,18 @@
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
         </select>
-
+{{-- 
     </div>
+    <div class="mb-3">
+        <label class="form-label">Tags</label>
+        <select name="tags[]" class="form-control">
+
+            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+
+           @endforeach
+
+        </select>
+    </div> --}}
     <div class="form-outline mb-4">
         <label class="form-label">image</label>
         <input type="file" name="img" class="form-control">
@@ -39,3 +52,7 @@
     </div>
 
 </form>
+
+
+
+
