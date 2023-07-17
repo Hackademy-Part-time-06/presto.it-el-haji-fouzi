@@ -9,6 +9,8 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
@@ -28,6 +30,11 @@ return new class extends Migration
     }
 
     /**
+     * Reverse the migrations.
+
+
+
+     
      * Reverse the migrations.
      */
     public function down(): void

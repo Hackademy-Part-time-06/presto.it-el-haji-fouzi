@@ -21,7 +21,7 @@
 
 
     <div class="container d-flex mt-4 ">
-        <div class="container">
+        <div class="container ">
             <div class="col-12">
                 <div class="col-lg-6 ">
                     @foreach ($articles as $article)
@@ -71,7 +71,7 @@
         <div class="col-lg-4 shadow p-3 mb-5 bg-body rounded ">
             <!-- Search widget-->
             <div class="card mb-4">
-                <div class="card-header">Search</div>
+                <div class="card-header bg-success">Search</div>
                 <div class="card-body">
                     <form action="{{ route('search.articles') }}" method="get" class="d-flex">
                         <div class="input-group">
@@ -84,7 +84,7 @@
             </div>
             <!-- Categories widget-->
             <div class="card mb-4 shadow p-3 mb-5 bg-body rounded">
-                <div class="card-header">Categories</div>
+                <div class="card-header bg-success">Categories</div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 shadow p-3 mb-5 bg-body rounded">
@@ -133,7 +133,7 @@
             </div>
             <!-- Side widget-->
             <div class="card mb-4 shadow p-3 mb-5 bg-body rounded">
-                <div class="card-header">Side Widget</div>
+                <div class="card-header bg-success">Side Widget</div>
                 <div class="card-body">You can put anything you want inside of these side widgets. They are easy
                     to
                     use, and feature the Bootstrap 5 card component!</div>

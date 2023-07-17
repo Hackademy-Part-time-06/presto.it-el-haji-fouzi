@@ -69,7 +69,7 @@ class AdminController extends Controller
 
     public function storeTag(Request $request)
     {
-       Tag::created(['name' => $request->input('name')]);
+       Tag::create(['name' => $request->input('name')]);
         return redirect()->route('admin.dashboard');
     }
 

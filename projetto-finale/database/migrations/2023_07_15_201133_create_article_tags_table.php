@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('articles_id')->nullable();
             $table->foreign('articles_id')->references('id')->on('articles')->onDelete('SET NULL');
             $table->unsignedBigInteger('tag_id')->nullable();
-            $table->foreign('tag_id')->references('id')->on('tag')->onDelete('SET NULL');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('SET NULL');
 
 
             $table->timestamps();

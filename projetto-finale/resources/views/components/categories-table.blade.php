@@ -2,25 +2,26 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Categoria</th>
-            <th scope="col">Articoli</th>
+            <th scope="col">Titolo</th>
+            <th scope="col">Creato il</th>
+            <th scope="col">Status</th>
             <th scope="col">Modifica</th>
             <th scope="col">Elimina</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($categories as $category)
+        @foreach ($articles as $article)
             <tr>
-                <th scope="row">{{ $category->id }}</th>
-                <td>{{ $category->name }}</td>
-                <td>{{ count($category->articles) }}</td>
+                <th scope="row">{{ $article->id }}</th>
+                <td>{{ $article->title }}</td>
+                <td>{{ $article->created_at->format("d/m/y") }}</td>
                 <td>
-                    <form action="{{ route('category.edit', $category) }}" method="post" class="w-50">
-                        @csrf
-                        <input type="text" class="form-control" placeholder="nuovo nome" name="name">
-                        <button class="btn btn-info">Salva</button>
-                    </form>
+                    {{ $article->is_accepted ? "Publicato":"Non publicato"}}
                 </td>
+                <td>
+                    <a href="{{ route('article.edit',$article) }}" class="btn btn-info">Modifica</a>
+                </td>
+               
                 <td>
                     <form action="{{ route('category.delete') }}" class="w-50" method="post">
                         @csrf

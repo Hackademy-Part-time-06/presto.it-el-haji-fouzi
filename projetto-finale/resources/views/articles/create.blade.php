@@ -12,7 +12,7 @@
             <div class="container shadow p-3 mb-5 bg-body rounded">
                 <div class="row">
                     <div class="col-12 col-md-6">
-                         <x-form />
+                         <x-form  :tags="$tags"/>
 
                     </div>
                 </div>

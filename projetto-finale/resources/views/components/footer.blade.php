@@ -1,7 +1,7 @@
 <!-- Remove the container if you want to extend the Footer to full width. -->
 
 <!-- Footer -->
-<div class="container">
+<div class="container w-100">
     <div class="text-center text-lg-start text-white ">
         <!-- Grid container -->
         <div class="container p-4 pb-0 bg-warning">

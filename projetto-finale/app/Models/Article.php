@@ -8,6 +8,7 @@ use Laravel\Scout\Searchable;
 
 
 
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -46,7 +47,7 @@ class Article extends Model
 
     public function tags()
     {
-        $this->benlongsToMany(Tag::class);
+         return $this->belongsToMany(Tag::class);
     }
 
 }

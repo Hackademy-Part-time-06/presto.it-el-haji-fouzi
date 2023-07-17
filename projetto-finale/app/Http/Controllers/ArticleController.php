@@ -18,8 +18,6 @@ class ArticleController extends Controller
     {
 
         return view('index');
-
-
     }
 
 
@@ -27,26 +25,24 @@ class ArticleController extends Controller
     {
         $tags = Tag::all();
         return view('articles.create', compact('tags'));
-
-
     }
     public function store(Request $request)
     {
 
 
-       $article= Auth::user()->articles()->create(
-        [
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'body' => $request->input('body'),
-            'img' => $request->file('img')->store("public/img"),
-            'category_id' => $request->input('category_id'),
-        ]
-    );
-            //  $selectedTags = $request->input('tags');
-            //  foreach ($selectedTags as $tagId){
-            //     $article->tags()->attach($tagId);
-             
+        $article = Auth::user()->articles()->create(
+            [
+                'title' => $request->input('title'),
+                'description' => $request->input('description'),
+                'body' => $request->input('body'),
+                'img' => $request->file('img')->store("public/img"),
+                'category_id' => $request->input('category_id'),
+            ]
+        );
+        $selectedTags = $request->input('tags');
+        foreach ($selectedTags as $tagId) {
+            $article->tags()->attach($tagId);
+        }
 
         return redirect()->route('homepage')->with('message', 'Articolo caricato correttamente');
     }
@@ -57,10 +53,9 @@ class ArticleController extends Controller
 
 
 
-
     public function show(Article $article)
     {
-        Return view('articles.show',compact('article'));
+        return view('articles.show', compact('article'));
     }
 
 
@@ -72,16 +67,43 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
+        return view('article.edit', compact('article','tags'));
     }
 
 
     public function update(Request $request, Article $article)
     {
+        if($request->has('img')){
+            $article->update(
+                [
+                    'title' => $request->input('title'),
+                    'description' => $request->input('description'),
+                    'body' => $request->input('body'),
+                    'img' => $request->file('img')->store("public/img"),
+                    'category-id' => $request->input('category-id'),
+                ]
+                );
+        }else{
+            $article->update(
+                [
+                    'title' => $request->input('title'),
+                    'description' => $request->input('description'),
+                    'body' => $request->input('body'),
+                    'category-id' => $request->input('category-id'),
+                ]
+
+            );
+        }
+        $article->tags()->detach();
+        $article->tags()->sync($request->input('tags'));
+        return redirect()->route('articles.dashboard');
     }
 
 
     public function destroy(Article $article)
     {
+        $article->delete();
+        return redirect()->route('articles.dashboard');
     }
     public function articlesForCategory(Category $category)
     {
@@ -89,4 +111,8 @@ class ArticleController extends Controller
         return view('articles.category', compact('articles', 'category'));
     }
 
+    public function articleDashboard()
+    {
+        return view('articles.dashboard');
+    }
 }

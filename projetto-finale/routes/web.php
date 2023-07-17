@@ -33,6 +33,8 @@ Route::get('/articles/{category}/index', [ArticleController::class, 'articlesFor
 Route::get('/work-with-us', [PageController::class, 'workWithUs'])->name('work.with.us');
 
 Route::post('/user/send-role-request', [PageController::class, 'sendRoleRequest'])->name('user.role.request');
+Route::get('/article/serach', [PageController::class, 'searchArticle'])->name('search.articles');
+
 
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard',[AdminController::class, 'dashboard'])->name('admin.dashboard');
@@ -45,8 +47,8 @@ Route::middleware('admin')->group(function(){
     Route::get('/admin/{user}/set-admin',[AdminController::class, 'makeUserAdmin'])->name('admin.makeUserAdmin');
     Route::get('/admin/{user}/set-writer', [AdminController::class, 'makeUserWriter'])->name('admin.makeUserWriter');
 
-    Route::post('/tag/Tag/update', [AdminController::class, 'editTag'])->name('tag.edit');
-    Route::delete('/tag/Tag/delete', [AdminController::class, 'deletTag'])->name('tag.delete');
+    Route::post('/tag/tag/update', [AdminController::class, 'editTag'])->name('tag.edit');
+    Route::delete('/tag/tag/delete', [AdminController::class, 'deletTag'])->name('tag.delete');
     Route::post('/tag/store', [AdminController::class, 'storeTag'])->name('tag.store');
 
     Route::post('/category/{category}/update', [AdminController::class, 'editCategory'])->name('category.edit');
@@ -58,6 +60,10 @@ Route::middleware('admin')->group(function(){
 Route::middleware('writer')->group(function(){
     Route::get('/article/create',[ArticleController::class, 'create'])->name('article.create');
     Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
+    Route::get('/article/dashboard', [ArticleController::class, 'article_dashboard'])->name('article.dashboard');
+    Route::post('/article/{ article/edit }', [ArticleController::class, 'edit'])->name('article.edit');
+    Route::put('/article/{article}/update', [ArticleController::class, 'update'])->name('article.update');
+    Route::delete('/article/{article}/delete', [ArticleController::class, 'destroy'])->name('article.delete');
 
 });
 
@@ -70,7 +76,6 @@ Route::middleware('revisor')->group(function () {
 
 //la rotta serach
 
-Route::get('/article/serach', [PageController::class, 'searchArticle'])->name('search.articles');
 
 
 
